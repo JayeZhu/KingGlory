@@ -5,6 +5,9 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+import http from './http'
+Vue.prototype.$http = http  // 将http绑定到原型上
+
 new Vue({
   router,
   render: h => h(App)
