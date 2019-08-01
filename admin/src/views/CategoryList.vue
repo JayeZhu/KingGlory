@@ -37,6 +37,7 @@ export default {
           cancelButtonText: '取消',
           type: 'warning'
         }).then(async () => {
+          // eslint-disable-next-line
           const res = await this.$http.delete(`rest/categories/${row._id}`)
           this.$message({
             type: 'success',

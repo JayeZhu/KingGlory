@@ -37,6 +37,7 @@ export default {
   },
   methods: {
     async save () {
+      // eslint-disable-next-line
       let res;
       if (this.id) {
         res = await this.$http.put(`rest/categories/${this.id}`, this.model);
