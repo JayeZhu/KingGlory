@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box; // 这可令浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中
+  outline: none;
+}
+
+html {
+  font-size: 13px; // 网页基础字体大小
+}
+
+body {
+  margin: 0; // 取消外边距 8px
+  font-family: Arial, Helvetica, sans-serif; // 基础，苹果，非衬线字体
+  line-height: 1.2rem; // 行高
+  background: #f1f1f1; // 背景颜色灰色
+}
+
+a {
+  color: #999; // 标签颜色
+}
+
+// colors map类型
+$colors: (
+  'primary': #db9e3f,
+  'white': #fff,
+  'light': #f9f9f9,
+  'grey': #999,
+  'dark-1': #343440,
+  'dark': #222,
+  'black': #000,
+);
+// text-color bg-color
+@each $key, $var in $colors {
+  .text-#{$key} {
+    color: $var;
+  }
+  .bg-#{$key} {
+    background-color: $var
+  }
+}
+// text-align
+@each $var in (left, center, right) {
+  .text-#{$var} {
+    text-align: $var
+  }
+}
+
+$base-font-size: 1rem;
+
+// font-size
+$font-sizes: (
+  xs: 0.7692, // 10px
+  sm: 0.9231, // 12px
+  md: 1, // 13px
+  lg: 1.0769, // 14px
+  xl: 1.2308 // 16px
+);
+
+@each $key, $var in $font-sizes {
+  .fs-#{$key} {
+    font-size: $var * $base-font-size
+  }
+}
+
+// 水平布局
+.d-flex {
+  display: flex; // 显示为flex布局
+}
+
+// 垂直布局
+.flex-column  {
+  flex-direction: column
+}
+
+// 主轴对齐方式
+$flex-jc: (
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
+  'between': space-between,
+  'around': space-around
+);
+
+@each $key, $var in $flex-jc {
+  .jc-#{$key} {
+    justify-content: $var;
+  }
+}
+
+// 交叉轴对齐方式
+$flex-ai: (
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
+  'baseline': baseline,
+  'stretch': stretch
+);
+
+@each $key, $var in $flex-ai {
+  .ai-#{$key} {
+    align-items: $var
+  }
+}
+
+.flex-1 {
+  flex: 1
+}
+// 占满剩余空间
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+// spacing
+$spacing-types: (
+   m: margin,
+   p: padding
+);
+$spacing-directions: (
+  t: top,
+  b: bottom,
+  l: left,
+  r: right,
+);
+$spacing-base-size: 1rem;
+$spacing-sizes: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+  4: 1.5,
+  5: 3,
+);
+
+@each $typeKey,$type in $spacing-types {
+  @each $sizeKey, $size  in $spacing-sizes {
+    // m-1
+    .#{$typeKey}-#{$sizeKey} {
+      #{$type}: $size * $spacing-base-size
+    }
+    // mx-1
+    .#{$typeKey}x-#{$sizeKey} {
+      #{$type}-left: $size * $spacing-base-size;
+      #{$type}-right: $size * $spacing-base-size;
+    }
+    // my-1
+    .#{$typeKey}y-#{$sizeKey} {
+      #{$type}-top: $size * $spacing-base-size;
+      #{$type}-bottom: $size * $spacing-base-size;
+    }
+  }
+  // mx-1
+  @each $directionKey, $direction in $spacing-directions {
+    @each $sizeKey, $size  in $spacing-sizes {
+      .#{$typeKey}#{$directionKey}-#{$sizeKey} {
+        #{$type}-#{$direction}: $size * $spacing-base-size
+      }
+    }
+  }
+}
