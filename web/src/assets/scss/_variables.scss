@@ -1,0 +1,54 @@
+// colors map类型
+$colors: (
+  'primary': #db9e3f,
+  'info': #4b67af,
+  'white': #fff,
+  'light': #f9f9f9,
+  'grey-1': #666,
+  'grey': #999,
+  'dark-1': #343440,
+  'dark': #222,
+  'black': #000,
+);
+
+$base-font-size: 1rem;
+
+// font-size
+$font-sizes: (
+  xxs: 0.6154, // 8px
+  xs: 0.7692, // 10px
+  sm: 0.9231, // 12px
+  md: 1, // 13px
+  lg: 1.0769, // 14px
+  xl: 1.2308 // 16px
+);
+
+// 主轴对齐方式
+$flex-jc: (
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
+  'between': space-between,
+  'around': space-around
+);
+
+// spacing
+$spacing-types: (
+   m: margin,
+   p: padding
+);
+$spacing-directions: (
+  t: top,
+  b: bottom,
+  l: left,
+  r: right,
+);
+$spacing-base-size: 1rem;
+$spacing-sizes: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+  4: 1.5,
+  5: 3,
+);
